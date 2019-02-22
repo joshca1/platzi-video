@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import '../../App.css'
-
+import logo from '../../images/logo.png'
 class Sidebar extends Component {
   render() {
     return (
       <div className="sidebar">
-        <p>Soy Sidebar</p>
+        <img src={logo} alt="logo" />
       </div>
     )
   }
