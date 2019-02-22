@@ -4,9 +4,6 @@ import Media from './Media'
 import '../App.css'
 import Figure from './icons/figure'
 class Playlist extends Component {
-  state = {
-    author: this.props.author
-  }
   // handleClick = event => {
   //   this.setState((state, props) => {
   //     return { ...state, author: 'nuevo author' }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import '../App.css'
+const baseUrl = require.context('../images/covers/', true)
 class Media extends Component {
   render() {
     const { description, title, playlist } = this.props.mediaData
@@ -12,9 +13,9 @@ class Media extends Component {
         <div className="Media-contenido">
           {playlist.map(p => {
             return (
-              <div key={p.id}>
-                <img src={p.cover} alt="cover" />
-                {p.title}
+              <div className="cuadro" key={p.id}>
+                <img src={baseUrl('./' + p.cover)} alt="cover" />
+                <p>{p.title}</p>
               </div>
             )
           })}

@@ -1,5 +1,10 @@
 .App {
+  display: grid;
+  grid-template-columns: minmax(20%, 30%) 1fr;
   text-align: center;
+}
+.Header {
+  grid-column: 1/3;
 }
 .Media {
   display: grid;
@@ -10,9 +15,18 @@
   display: flex;
   overflow: auto;
 }
-.Media-contenido > div {
-  width: auto;
+.cuadro {
+  min-width: 300px;
+  max-width: 500px;
+  margin: 10px;
+}
+.cuadro > div {
   border: 2px solid purple;
+}
+.Media-contenido img {
+  height: 80%;
+  width: 80%;
+  overflow: hidden;
 }
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
