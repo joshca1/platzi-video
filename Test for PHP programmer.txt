@@ -1,0 +1,208 @@
+Test for PHP programmer
+
+Deadline: 3 days.
+
+INTRO:
+
+You will need use our engine to create simple CRM app.
+
+Test goal 
+
+1st - to see how you can read, understand and work with existing code
+2nd - it will help you to learn this engine faster
+
+Because of this only minimum information about engine will be provided
+you will need figure out yourself how implement all needed features.
+(there is enough examples in engine itself, also it relative simple to use, 
+most things you need to do is automated, you just need config engine correctly )
+
+In case you will stuck on something you can ask for help, but less questions is better.
+
+
+ENGINE:
+This engine was created with idea to make as less coding as possible and
+automatize common things and tasks.
+Its not exact MVC paradigm, but something near it
+and can be and Framework and CMS in same time.
+
+You can get engine here with SVN
+https://217.77.220.111:18443/svn/projs/s1le/test2nd
+Login: 2ndtest
+Pass: 123456
+Its readonly, not commit back there
+
+Engine use mysql_ functions, so you need or use php5, 
+or compile php7 with mysql_ or use some wrappers
+
+You will need create db_creds.php file with:
+$init_db = array("host" => "localhost", "user" => "root", "pass" => "root",
+		"db" => "DB_NAME", "charset" => "utf8");
+
+Also import sys.sql
+
+As result you will be able access with login rclog and pass 123456 to CRM
+This login and all you will see is just for you for example
+
+And pay attention on maps2db.php script
+
+IMPORTANT:
+You will need record video about each task (or about all):
+1st show how it works, 
+2nd show how you implemented it (show code parts in video)
+You can comment on English or Russian
+
+
+TASK:
+1. Create Manager object, fields:
+
+Name, Status(New, Active, Terminated), Email, Username, Password
+
+Make it available with /mngr url
+
+
+2. Create Clients object, fields:
+Name, Manager, Email, Phone, Address,Status (New, Interested, Lost), Notes
+Make it available with /cls url
+Field Manager is relation to object Managers.
+
+3. Make admin user with pass 321321 and next view for it:
+Menu:
+Managers, Clients
+
+Can add, edit, delete both Managers and Clients
+
+
+4.1. Managers:
+List:
+Show next fields:
+(checkbox),(controls),Name, Status, Email, Username
+
+Add button Terminate in top of table thats will require at least one checkbox selected 
+and will put Status of selected managers to Terminated
+
+Also create button Terminate on detail view of Manager, thats will put Status
+Terminated, to current manager
+
+View should be next:
+Title: Main Info
+Fields in 3 columns:
+Name		Email		Status
+
+Title: Credentials
+Fields in 2 columns:
+Username 				Password
+
+Title: System info
+Field: Id
+
+Edit should be same, but without System Info and Id field and Status -
+Terminated should be removed from list of possible options
+
+
+4.2. Clients
+List:
+(controls),Name, Manager (should be link to manager), Email, Phone, Status
+Based on Status of Client row background should be next:
+New - white
+Interested - light green
+Lost - light red
+
+View:
+Title: Main Info
+Fields in 2 columns:
+Name			Email
+Manager		Phone
+					Address
+					Status
+Title: Notes
+Field in one column for full width:
+Notes
+
+Edit: should be same as view.
+
+
+4.3. Admin can see all managers and all clients
+
+
+5. Allow Managers login with their Username, Password from table
+
+
+6. After Manager is logged in he should have next view:
+Menu:
+Clients, Pipe, Profile
+
+
+6.1. Clients
+Manager can see ONLY his Clients
+Manager can only edit and view clients
+List:
+(controls),Status,Name, Email, Phone
+Status field in list should have icon before status value:
+-yellow circle if New
+-green mark if Interested
+-red cross if Lost
+Default sort should be by Name field, ascending
+
+View:
+Title: Main Info
+Fields in 3 columns:
+Name	Status	Email			
+							Phone
+							Address
+Title: Notes
+Field in one column for full width:
+Notes
+
+Edit: same as view
+
+*if Status is Lost - Email, Phone and Address should be hidden
+*in edit if you select Lost status - this 3 fields should be dinamically hide/appear
+
+
+6.2. Pipe:
+Should be page accesible with /pipe or /pipe/id
+It should show client of this manager with Status = New
+If id not set you should get manager's client with less id and status=New and then forward to 
+/pipe/id
+If client with Id in url have Status other then New - you need do same logic
+as above and forward again
+
+Page should have client view
+View for client should be:
+Fields in 2 columns:
+Id			Email			
+Name		Phone
+Status	Address
+(***Id field should link to common client view page)
+
+Page should have 2 buttons (duplicate above and below view)
+Button 1: Interesed
+on click - set current client Status to Interested and go to next New client
+
+Button 2: Lost
+on click - set current client Status to Lost and go to next client New
+
+(*** if there no clients with New status left - show just message "No NEW Clients")
+
+
+6.3 Profile
+Should show current manager record edit page
+Layout:
+Name (readonly)
+Email (readonly)
+Title: Credentials
+Fields in 2 columns:
+Username	Password
+
+7. Bonus task:
+Find how attach image to Client using engine and add Photo image, 
+put it above all fields in all Client layouts
+
+P.S.
+All tasks almost not need coding, just configuring engine, except pipe page task
+Add all needed methods to user.class.php file
+
+TEST PROVIDING:
+Return your work to me in archive
+(P.S. Only code, without db dump)
+Also if possibly also put it available somewhere online

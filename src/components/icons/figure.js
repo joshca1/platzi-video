@@ -26,6 +26,7 @@ const Figure = {
       </Icon>
     )
   },
+
   Volume(props) {
     return (
       <Icon {...props}>

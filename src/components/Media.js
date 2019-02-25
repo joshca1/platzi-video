@@ -7,9 +7,8 @@ class Media extends Component {
     const { description, title, playlist } = this.props.mediaData
     return (
       <div className="Media">
-        <p>
-          Descripcion: {description} titulo: {title}
-        </p>
+        <h3>{description}</h3>
+        <h4>titulo: {title}</h4>
         <div className="Media-contenido">
           {playlist.map(p => {
             return (
