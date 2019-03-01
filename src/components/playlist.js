@@ -7,7 +7,13 @@ class Playlist extends Component {
     return (
       <div className="playlist">
         {playlist.map(e => {
-          return <Media key={e.id} mediaData={e} />
+          return (
+            <Media
+              key={e.id}
+              mediaData={e}
+              handleClose={this.props.handleClose}
+            />
+          )
         })}
       </div>
     )
