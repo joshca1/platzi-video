@@ -13,7 +13,6 @@ class App extends Component {
     modalVisible: false
   }
   handleCloseModal = event => {
-    console.log(event)
     this.setState({
       modalVisible: !this.state.modalVisible
     })

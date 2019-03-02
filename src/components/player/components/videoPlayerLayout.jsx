@@ -1,7 +1,7 @@
 import React from 'react'
 import './videoPlayerLayout.css'
 const VideoPlayerLayout = props => (
-  <div className="content-navigation">{props.children}</div>
+  <div className="VideoPlayer">{props.children}</div>
 )
 
 export default VideoPlayerLayout
