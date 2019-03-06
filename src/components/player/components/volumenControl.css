@@ -1,0 +1,19 @@
+.Volumen {
+  font-family: 'Courier New', Courier, monospace;
+}
+.Volumen input {
+  width: 4em;
+}
+
+.Volumen button {
+  height: inherit;
+  border: none;
+  background: transparent;
+  outline: 0;
+  width: inherit;
+  box-sizing: none;
+  font-size: 30px;
+  cursor: pointer;
+  padding: 0;
+  z-index: 999;
+}

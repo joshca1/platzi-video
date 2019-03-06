@@ -1,13 +1,12 @@
 .VideoPlayerControls {
   display: flex;
+  justify-items: center;
   align-items: center;
-  justify-content: center;
   position: absolute;
+  top: 200px;
   background: rgba(0, 0, 0, 0.7);
-  top: 100px;
-  left: 10px;
-  right: 10px;
-  z-index: 2;
   border-radius: 20px;
+  z-index: 2;
   padding: 0 10px;
+  transition: opacity 1.5s;
 }
