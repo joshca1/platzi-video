@@ -23,17 +23,15 @@ class VideoContainer extends Component {
       this.props.play ? this.video.play() : this.video.pause()
     }
     return (
-      <div>
-        <video
-          ref={this.setRef}
-          onTimeUpdate={this.setCurrentTime}
-          onLoadedMetadata={this.setDuration}
-          value={this.props.progressValue}
-          src={this.props.src}
-          onWaiting={this.loading}
-          onCanPlay={this.resumeViewing}
-        />
-      </div>
+      <video
+        ref={this.setRef}
+        onTimeUpdate={this.setCurrentTime}
+        onLoadedMetadata={this.setDuration}
+        value={this.props.progressValue}
+        src={this.props.src}
+        onWaiting={this.loading}
+        onCanPlay={this.resumeViewing}
+      />
     )
   }
 }

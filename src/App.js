@@ -12,9 +12,10 @@ class App extends Component {
   state = {
     modalVisible: false
   }
-  handleCloseModal = event => {
+  handleCloseModal = data => {
     this.setState({
-      modalVisible: !this.state.modalVisible
+      modalVisible: !this.state.modalVisible,
+      data
     })
   }
   render() {
@@ -27,7 +28,10 @@ class App extends Component {
           {this.state.modalVisible && (
             <ModalContainer>
               <Modal handleClose={this.handleCloseModal}>
-                <Player />
+                <Player
+                  videoData={this.state.data}
+                  handleClose={this.handleCloseModal}
+                />
               </Modal>
             </ModalContainer>
           )}

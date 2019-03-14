@@ -2,15 +2,13 @@ import React, { Component } from 'react'
 import SearchLayout from '../layouts/searchLayout.jsx'
 class Search extends Component {
   state = {
-    value: 'xxx TEntacion'
+    value: 'Search a video'
   }
   searchSubmision = event => {
     event.preventDefault()
-    console.log(this.state)
   }
   inputChanged = event => {
     this.setState({ value: event.target.value.replace(' ', '-') })
-    console.log('input changed', event.target.value)
   }
   render() {
     return (

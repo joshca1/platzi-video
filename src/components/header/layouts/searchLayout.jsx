@@ -8,7 +8,7 @@ function SearchLayout(props) {
         <input
           type="text"
           className="Search-input"
-          placeholder="Buscar un artista, tema o amigo"
+          placeholder="Buscar un artista"
           name="search"
           onChange={props.handleChange}
           value={props.value}

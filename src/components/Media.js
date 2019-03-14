@@ -6,8 +6,9 @@ class Media extends Component {
   state = {
     nuevoState: true
   }
-  modifyState = event => {
-    console.log(this.props)
+  sendModalVideoData = data => {
+    // console.log(url)
+    this.props.handleClose(data)
   }
   render() {
     const { description, title, playlist } = this.props.mediaData
@@ -21,7 +22,7 @@ class Media extends Component {
               <div
                 className="cuadro"
                 key={p.id}
-                onClick={this.props.handleClose}
+                onClick={this.sendModalVideoData.bind(this, p)}
               >
                 <img src={baseUrl('./' + p.cover)} alt="cover" />
                 <p>{p.title}</p>

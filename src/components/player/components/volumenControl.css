@@ -1,11 +1,19 @@
-.Volumen {
-  font-family: 'Courier New', Courier, monospace;
-}
-.Volumen input {
-  width: 4em;
+.Volume {
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
 }
 
-.Volumen button {
+.Volume input {
+  cursor: grab;
+  width: 50px;
+  background: blue;
+  border: 1px solid blue;
+}
+.Volume button:hover .input {
+  opacity: 1;
+}
+.Volume button {
   height: inherit;
   border: none;
   background: transparent;

@@ -41,11 +41,6 @@
   position: relative;
 }
 
-.Header svg {
-  position: absolute;
-  left: 280px;
-  top: 38px;
-}
 .sidebar {
   grid-area: sidebar;
   width: 35vh;

@@ -9,9 +9,13 @@ const VolumenControl = props => {
     props.muteVideo()
   }
   return (
-    <div className="Volumen">
+    <div className="Volume">
       <button onClick={muteVolume}>
-        <Figure.Volume color="white" size={20} />
+        {Number(props.volumen) === 0 ? (
+          <Figure.Muted color="white" size={20} />
+        ) : (
+          <Figure.Volume color="white" size={20} />
+        )}
       </button>
       <input
         type="range"
