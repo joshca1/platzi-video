@@ -11,6 +11,7 @@ import VolumenControl from './components/volumenControl'
 import formatTime from '../../utils/formatTime'
 import VideoPlayerControls from './components/videoPlayerControls'
 import './components/videoPlayerLayout.css'
+import { connect } from 'react-redux'
 class VideoPlayer extends Component {
   state = {
     play: true,
@@ -92,12 +93,19 @@ class VideoPlayer extends Component {
     })
   }
   handleCloseModal = e => {
-    this.props.handleClose()
+    this.props.dispatch({
+      type: 'CLOSE_MODAL',
+      payload: {
+        active: false,
+        mediaData: {}
+      }
+    })
   }
   render() {
+    const { title, src } = this.props.modal.mediaData
     return (
       <VideoPlayerLayout setPlayerRef={this.setPlayerRef}>
-        <Title title={this.props.videoData.title} />
+        <Title title={title} />
         <div onClick={this.handleCloseModal} className="close" />
         {this.state.loading && <Spinner />}
         <VideoContainer
@@ -107,7 +115,7 @@ class VideoPlayer extends Component {
           progressValue={this.state.progressValue}
           handleLoading={this.handleLoading}
           volume={this.state.volumen}
-          src={this.props.videoData.src}
+          src={src}
         />
         <VideoPlayerControls>
           <PlayPause play={this.state.play} handleClick={this.handleClick} />
@@ -128,5 +136,9 @@ class VideoPlayer extends Component {
     )
   }
 }
-
-export default VideoPlayer
+function mapStateProps(state, props) {
+  return {
+    modal: state.modal
+  }
+}
+export default connect(mapStateProps)(VideoPlayer)

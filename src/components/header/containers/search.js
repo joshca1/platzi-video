@@ -1,14 +1,21 @@
 import React, { Component } from 'react'
 import SearchLayout from '../layouts/searchLayout.jsx'
+import { connect } from 'react-redux'
 class Search extends Component {
   state = {
-    value: 'Search a video'
+    value: ''
   }
   searchSubmision = event => {
     event.preventDefault()
+    this.props.dispatch({
+      type: 'SEARCH_VIDEO',
+      payload: {
+        query: event.target.search.value
+      }
+    })
   }
   inputChanged = event => {
-    this.setState({ value: event.target.value.replace(' ', '-') })
+    this.setState({ value: event.target.value })
   }
   render() {
     return (
@@ -21,5 +28,9 @@ class Search extends Component {
     )
   }
 }
-
-export default Search
+function mapStateProps(state, props) {
+  return {
+    categories: state.categories
+  }
+}
+export default connect(mapStateProps)(Search)

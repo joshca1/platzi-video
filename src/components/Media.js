@@ -3,11 +3,7 @@ import PropTypes from 'prop-types'
 import '../App.css'
 const baseUrl = require.context('../images/covers/', true)
 class Media extends Component {
-  state = {
-    nuevoState: true
-  }
   sendModalVideoData = data => {
-    // console.log(url)
     this.props.handleClose(data)
   }
   render() {
@@ -22,7 +18,9 @@ class Media extends Component {
               <div
                 className="cuadro"
                 key={p.id}
-                onClick={this.sendModalVideoData.bind(this, p)}
+                onClick={() => {
+                  this.sendModalVideoData(p)
+                }}
               >
                 <img src={baseUrl('./' + p.cover)} alt="cover" />
                 <p>{p.title}</p>
