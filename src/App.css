@@ -57,6 +57,7 @@
   display: flex;
   overflow: auto;
 }
+
 .cuadro {
   min-width: 300px;
   max-width: 500px;
@@ -74,6 +75,11 @@
   box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
 }
 
+.Media-contenido img:hover {
+  box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.9);
+  transition: transform 0.2s;
+  transform: scale(1.01);
+}
 .App-link {
   color: #61dafb;
 }
